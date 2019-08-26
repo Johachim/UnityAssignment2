@@ -21,15 +21,16 @@ public class BoxBreak : MonoBehaviour
         
     }
 
-    void OnCollision(Collision col)
+    private void OnTriggerEnter(Collider other)
     {
-        if(col.gameObject.tag == "Box")
+        if (other.gameObject.tag == "Box")
         {
-        breakSource.Play();
-        Destroy(col.gameObject);
-        pointCounter++;
+            breakSource.Play();
+            Destroy(other);
+            pointCounter++;
         }
-            t.text = "Score: " + pointCounter;
-        
+        t.text = "Score: " + pointCounter;
+
     }
 }
+      
